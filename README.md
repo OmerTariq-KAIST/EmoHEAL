@@ -21,41 +21,34 @@ To run this code you need the following:
 ```
 ```
 
-## Training the model
+Here is the PyTorch implementation of the EmoHEAL model. EmoHEAL is a lightweight deep learning architecture that uses wrist sensor data and achieves 72.35% accuracy on the K-EmoCon dataset, making it suitable for IoT applications in smartwatches.
 
-Use the `train.py` script to train the model. To train the default model on 
-CIFAR-10 simply use:
+# Architectures
+1. TCN+CA-SA+GRU Fusion
+2. TCN+GRU Fusion
+3. TCN+xLSTM
+4. TCN+MHA
+5. TCN+Transformer Encoder
+6. ResNet + GRU Fusion
 
-```
-python3 train.py
-```
-
-You might want to at least change the `--data_dir` and `--save_dir` which
-point to paths on your system to download the data to (if not available), and
-where to save the checkpoints.
-
-**I want to train on fewer GPUs**. To train on fewer GPUs we recommend using `CUDA_VISIBLE_DEVICES` 
-to narrow the visibility of GPUs to only a few and then run the script. Don't forget to modulate
-the flag `--nr_gpu` accordingly.
-
-**I want to train on my own dataset**. Have a look at the `DataLoader` classes
-in the `data/` folder. You have to write an analogous data iterator object for
-your own dataset and the code should work well from there.
-
-## Pretrained model checkpoint
-
-You can download our pretrained (TensorFlow) model that achieves 2.92 bpd on CIFAR-10 [here](http://alpha.openai.com/pxpp.zip) (656MB).
+# Dataset
+You can request the dataset from [K-Emocon](https://zenodo.org/records/3931963). Place the dataset in the `dataset` folder.
 
 ## Citation
 
 If you find this code useful please cite us in your work:
 
 ```
-@inproceedings{Salimans2017PixeCNN,
-  title={PixelCNN++: A PixelCNN Implementation with Discretized Logistic Mixture Likelihood and Other Modifications},
-  author={Tim Salimans and Andrej Karpathy and Xi Chen and Diederik P. Kingma},
-  booktitle={ICLR},
-  year={2017}
-}
+@INPROCEEDINGS{10784695,
+  author={Tariq, Omer and Oh, Yookyung and Han, Dongsoo},
+  booktitle={2024 IEEE SENSORS}, 
+  title={EmoHEAL: A Fusion-Based Framework for Emotion Recognition Using Wearable Sensors}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-4},
+  keywords={Performance evaluation;Wrist;Temperature measurement;Emotion recognition;Feature extraction;Real-time systems;Sensors;Internet of Things;Biomedical monitoring;Wearable sensors;Sensor Fusion;Emotion Recognition;AIoT;Temporal Convolution;Affective Computing;Deep Learning},
+  doi={10.1109/SENSORS60989.2024.10784695}}
+
 ```
-# pixel-cnn-rotations
+# EmoHEAL
